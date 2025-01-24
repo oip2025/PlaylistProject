@@ -5,19 +5,20 @@
  */
 public class Song {
     //Fields-- what information do we want each Song to store?
-
-
-
+    private String name;
+    private double duration;
+    private String artist;
 
     /**
      * Constructor-- what information needs to be given to make a Song?
      * How will you handle 'liked' songs? It makes sense for a Song not be 'liked' by default
      */
-
-
-
-
-
+    public Song(String name, double duration, String artist)
+    {
+        this.name = name;
+        this.duration = duration;
+        this.artist = artist;
+    }
      /**
       * Methods-- what will you want each Song to do?
       * Consider all the getter methods (getName, getArtist, etc.)
@@ -25,6 +26,14 @@ public class Song {
       * song easily as well!
       * What kind of mutator (setter) methods will you need?
       */
-
+    public String getName()
+    {
+        return name;
+    }
+    public double getDuration()
+    {
+        return duration;
+    }
+    
 
 }
