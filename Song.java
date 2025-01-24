@@ -34,6 +34,12 @@ public class Song {
     {
         return duration;
     }
-    
-
+    public String getArtist()
+    {
+        return artist;
+    }
+    public String toString()
+    {
+        return getName() + getDuration() + getArtist();
+    }
 }
