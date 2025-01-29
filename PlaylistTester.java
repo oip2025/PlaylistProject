@@ -7,7 +7,7 @@ public class PlaylistTester {
         System.out.println("Added \"%s\" by %s ( %s)".formatted("This Must Be the Place", "Talking Heads", "4:56)"));
         p.addSong("Dominoes", "Donald Byrd ", "4:33", true);
         p.addSong("Check the Rhime", "A Tribe Called Quest", "3:36", false);
-        p.addSong("Con Altura", "TRosalia", "(2:41)", true);
+        p.addSong("Con Altura", "Rosalia", "(2:41)", true);
         p.addSong("California", "Joni Mitchell", "3:50", false);
         p.addSong("In A Good Way", "Faye Webster", "3:42", false);
 
@@ -15,7 +15,7 @@ public class PlaylistTester {
 
         for (int i = 0; i < p.vibes.size(); i++)
         {
-            System.out.println("%s by %s (%s)".formatted(p.vibes.get(i).getName(), p.vibes.get(i).getArtist(), p.vibes.get(i).songDur()));
+            System.out.println("%s by %s (%s)".formatted(p.vibes.get(i).getName(), p.vibes.get(i).getArtist(), p.vibes.get(i).songDuration()));
         }
 
         System.out.println("\nLiking the songs in position 1, 3, 4\n");
@@ -29,12 +29,12 @@ public class PlaylistTester {
         {
             if (p.vibes.get(i).isLiked())
             {
-                System.out.println("%s by %s (%s) --liked".formatted(p.vibes.get(i).getName(), p.vibes.get(i).getArtist(), p.vibes.get(i).songDur()) );
+                System.out.println("%s by %s (%s) --liked".formatted(p.vibes.get(i).getName(), p.vibes.get(i).getArtist(), p.vibes.get(i).songDuration()) );
             }
             else 
             {
 
-                System.out.println("%s by %s (%s)".formatted(p.vibes.get(i).getName(), p.vibes.get(i).getArtist(), p.vibes.get(i).songDur()));
+                System.out.println("%s by %s (%s)".formatted(p.vibes.get(i).getName(), p.vibes.get(i).getArtist(), p.vibes.get(i).songDuration()));
             }
         }
 
@@ -49,12 +49,12 @@ public class PlaylistTester {
         {
             if (p.vibes.get(i).isLiked())
             {
-                System.out.println("%s by %s (%s) --liked".formatted(p.vibes.get(i).getName(), p.vibes.get(i).getArtist(), p.vibes.get(i).songDur()) );
+                System.out.println("%s by %s (%s) --liked".formatted(p.vibes.get(i).getName(), p.vibes.get(i).getArtist(), p.vibes.get(i).songDuration()) );
             }
             else 
             {
 
-                System.out.println("%s by %s (%s)".formatted(p.vibes.get(i).getName(), p.vibes.get(i).getArtist(), p.vibes.get(i).songDur()));
+                System.out.println("%s by %s (%s)".formatted(p.vibes.get(i).getName(), p.vibes.get(i).getArtist(), p.vibes.get(i).songDuration()));
             }
         }
         System.out.println("\nPrinting only the liked songs...\n");
@@ -63,7 +63,7 @@ public class PlaylistTester {
         {
             if (p.vibes.get(i).isLiked())
             {
-                System.out.println("%s by %s (%s) --liked".formatted(p.vibes.get(i).getName(), p.vibes.get(i).getArtist(), p.vibes.get(i).songDur()) );
+                System.out.println("%s by %s (%s) --liked".formatted(p.vibes.get(i).getName(), p.vibes.get(i).getArtist(), p.vibes.get(i).songDuration()) );
             }
         }
         System.out.println("\nPrinting the total duration of all songs...\n");
