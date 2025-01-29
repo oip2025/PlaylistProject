@@ -4,13 +4,14 @@ import java.util.ArrayList;
  * The Playlist class, which will keep track of a playlist of Song objects
  * Refer to the project description to make sure you have access to all available methods
  */
+import java.util.ArrayList;
 public class Playlist
 {
     /**
      * Fields-- This will likely just need to be the ArrayList of Songs. Reference our previous problems
      * (CarDealership, Zoo) for structure on how this will look
      */
-    private ArrayList<Song> playlist;
+    ArrayList<String> Song = new ArrayList<String>();
     private String title;
     private String artist;
     private int durationInSeconds;
@@ -21,7 +22,6 @@ public class Playlist
       */
     public Playlist(String title, String artist, int durationInSeconds)
     {
-        playlist = new ArrayList<>();
         this.title = title;
         this.artist = artist;
         this.durationInSeconds = durationInSeconds;
@@ -52,13 +52,9 @@ public class Playlist
     {
         return liked;
     }
-    public add(Song newSong)
+    public String add(String title, String author, int durationInSeconds)
     {
-        songs.add(newSong);
-    }
-    public add(String title, String author, int durationInSeconds)
-    {
-        
+        return "Adding " + title + " by " + author + "(" + durationInSeconds + ")";
     }
     public int totalDuration()
     {
@@ -66,6 +62,9 @@ public class Playlist
     }
     public String removeUnliked()
     {
-        
+        while(liked == false)
+        {
+            Song.remove(title);
+        }
     }
 }
