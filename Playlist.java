@@ -33,13 +33,14 @@ public class Playlist
     public void addSong(String name, String artist, String duration, boolean liked)
     {
         Song newSong = new Song(name, artist, duration, liked);
+
         vibes.add(newSong);
     }
     public void like(String name)
     {
         for(int i = 0; i < vibes.size(); i++)
         {
-            if(vibes.get(i).isLiked() == false &&
+            if(
                vibes.get(i).getName().equals(name)) // aka if the song that it's on is not already liked and also matches that title
             {
                 vibes.get(i).like(); // using like method fron with Song class (object)
@@ -77,15 +78,17 @@ public class Playlist
         }
         return best;
     }
-    public double totalDuration()
+    public String totalDuration()
     {
-        double total = 0;
-        for(int i = 0; i < vibes.size(); i++)
-        {
-            total += vibes.get(i).calcDuration(); // using calcDuration method of total duration of a song (method in the Song class)
+        int totalSec = 0;
+        for (int i = 0; i < vibes.size(); i++) {
+            totalSec += vibes.get(i).calcDuration();
         }
-        return total / 60; // also converting from seconds back to minutes
+        int minutes = totalSec / 60;
+        int seconds = totalSec % 60;
+        return String.format("%d:%02d", minutes, seconds);
     }
+    
     public void removeUnliked() // using ArrayList function method remove()
     {
         for (int i = vibes.size() - 1; i >= 0; i--) // going backwards instead

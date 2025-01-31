@@ -9,13 +9,14 @@ public class Song {
     private boolean liked;
     private String artist;
 
-    public Song(String Name, String artist, String songDuration, boolean liked)
-    {
-        this.name = name;
+    public Song(String Name, String artist, String songDuration, boolean liked) {
+        this.name = Name;
         this.songDuration = songDuration;
-        this.liked = false;
+        this.liked = liked;
+        
         this.artist = artist;
     }
+    
 
     public String getName()
     {
@@ -30,7 +31,7 @@ public class Song {
     public String songDuration()
     {
         return songDuration;
-    }
+    }   
 
     public boolean isLiked()
     {
