@@ -1,7 +1,7 @@
 /**
  * File for a Song class to be used in the Playlist Project
- * @author
- * @version
+ * @author Emma and Olivia
+ * @version 2-6-2025
  */
 public class Song {
     private String name;
