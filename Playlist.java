@@ -11,14 +11,15 @@ public class Playlist
      * Fields-- This will likely just need to be the ArrayList of Songs. Reference our previous problems
      * (CarDealership, Zoo) for structure on how this will look
      */
-    ArrayList<Song> vibes;
+    private ArrayList<Song> vibes;
+
      /**
       * Constructor-- this doesn't need any parameters. You should just initialize the ArrayList and
       * then use additional methods to add Songs in one-by-one
       */
     public Playlist()
     {
-        vibes = new ArrayList<Song>();
+        vibes = new ArrayList<>();
     }
       /**
        * Methods-- Remember that you need to be able to complete all of the following:
@@ -33,17 +34,16 @@ public class Playlist
     public void addSong(String name, String artist, String duration, boolean liked)
     {
         Song newSong = new Song(name, artist, duration, liked);
-
         vibes.add(newSong);
+        System.out.println("Added " + newSong);
     }
-    public void like(String name)
+    public void likeSong(String name)
     {
-        for(int i = 0; i < vibes.size(); i++)
+        for(Song song : vibes)
         {
-            if(
-               vibes.get(i).getName().equals(name)) // aka if the song that it's on is not already liked and also matches that title
+            if (song.getName().equalsIgnoreCase(name)) // finding song by looking through the whole list
             {
-                vibes.get(i).like(); // using like method fron with Song class (object)
+                song.like(); // don't have to do vibes.get(i).like() here bc of enhanced for loop
             }
         }
     }
@@ -51,49 +51,68 @@ public class Playlist
     {
         for (int i = vibes.size() - 1; i >= 0; i--)
         {
-            if (vibes.get(i).getName().equals(name)) // so if corresponds to the name of the song that said trying to remove
+            if (vibes.get(i).getName().equalsIgnoreCase(name)) // so if corresponds to the name of the song that said trying to remove
             {
+                System.out.println("Removing: " + vibes.get(i));
                 vibes.remove(i);
+                //doing it for all in the thing I guess
             }
         }
     }
-    public String allSongs()
+    public String printAllSongs()
     {
-        String all = "";
-        for(int i = 0; i < vibes.size(); i++)
+        String allSongs = "Printing the songs...\n"; // n thing to like get out of it
+        for (Song song : vibes) // enhanced for loop (can get value of whatever index straight without.get(i) stuff
         {
-            all += vibes.get(i).getName() + ", "; // adding a comma for the list
+            allSongs += song + "\n"; // need this for formatting...idk I figured that out at some point
         }
-        return all;
+        return allSongs;
     }
-    public ArrayList<Song> likedSongs() // making new list of new songs
+    public String printLikedSongs() // making new list of new songs
     {
-        ArrayList<Song> best = new ArrayList<Song>();
-        for(int i = 0; i < vibes.size(); i++) // going through old list
+        System.out.println("Printing only the liked songs...");
+        ArrayList<Song> likedList = new ArrayList<Song>();
+        for(Song song : vibes) // going through old list
         {
-            if(vibes.get(i).isLiked())
+            if(song.isLiked())
             {
-                best.add(vibes.get(i)); // adding one by one to the new list of it's liked
+                likedList.add(song); // adding one by one to the new list of it's liked
             }
         }
-        return best;
+        String output = "Printing only the liked songs...\n"; // using \n for like problem thing
+        for(Song song : likedList)
+        {
+            output += song + "\n"; // print thing
+        }
+        return output;
     }
     public String totalDuration()
     {
-        int totalSec = 0;
-        for (int i = 0; i < vibes.size(); i++) {
-            totalSec += vibes.get(i).calcDuration();
+        int totalSeconds = 0;
+        for (Song song : vibes)
+        {
+            totalSeconds += song.calcDuration(); // using calcDuration method from Song class
         }
-        int minutes = totalSec / 60;
-        int seconds = totalSec % 60;
-        return String.format("%d:%02d", minutes, seconds);
+        int minutes = totalSeconds / 60; // whole numbers that get
+        int seconds = totalSeconds % 60; // the remainder that get
+        String result = "Total duration: " + minutes + ":";
+        // if seconds are in the single digits, have to add a 0 to the middle first
+        if (seconds < 10)
+        {
+            result += "0" + seconds;
+        }
+        else
+        {
+            result += seconds;
+        }
+        return result; // encountered the printing mistake thing AGAIN
     }
-    
-    public void removeUnliked() // using ArrayList function method remove()
+    public void removeUnlikedSongs() // using ArrayList function method remove()
     {
+        System.out.println("Removing all unliked songs...");
         for (int i = vibes.size() - 1; i >= 0; i--) // going backwards instead
         {
-            if(vibes.get(i).isLiked() == false) // boolean confirming that it's not already liked
+            if(!vibes.get(i).isLiked()) // boolean confirming that it's not already liked (false bc saying not true)
             {
                 vibes.remove(i);
             }

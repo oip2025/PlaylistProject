@@ -5,18 +5,17 @@
  */
 public class Song {
     private String name;
-    private String songDuration;
+    private String duration;
     private boolean liked;
     private String artist;
 
-    public Song(String Name, String artist, String songDuration, boolean liked) {
-        this.name = Name;
-        this.songDuration = songDuration;
-        this.liked = liked;
-        
+    public Song(String name, String artist, String duration, boolean liked)
+    {
+        this.name = name;
         this.artist = artist;
+        this.duration = duration;
+        this.liked = liked;
     }
-    
 
     public String getName()
     {
@@ -28,10 +27,10 @@ public class Song {
         return artist;
     }
 
-    public String songDuration()
+    public String getDuration()
     {
-        return songDuration;
-    }   
+        return duration;
+    }
 
     public boolean isLiked()
     {
@@ -47,22 +46,32 @@ public class Song {
     {
         liked = false;
     }
-
-    public double calcDuration()
+    public int calcDuration() //minutes and seconds as substrings
     {
-        double sec = 0;
-        int colonPosition = -1;
-        for (int i = 0; i < songDuration.length(); i++) {
-            if (songDuration.charAt(i) == ':') {
+        int colonPosition = 0;
+        for (int i = 0; i < duration.length(); i++)
+        {
+            if (duration.substring(i, i + 1).equals(":")) //finding the colon
+            {
                 colonPosition = i;
-                break;
+                break; // breaking out of the loop
             }
         }
-        String min = songDuration.substring(0, colonPosition);
-        sec += Integer.parseInt(min) * 60;
-        String secPart = songDuration.substring(colonPosition + 1);
-        sec += Integer.parseInt(secPart);
-        return sec;
+        String minutesPart = duration.substring(0, colonPosition);
+        String secondsPart = duration.substring(colonPosition + 1); // one after that index to the end
+        
+        int minutes = Integer.parseInt(minutesPart); //converting it to this
+        int seconds = Integer.parseInt(secondsPart);
+        
+        return (minutes * 60) + seconds;
     }
-
+    public String toString() // a toString method now will make it easier later with objects // liked or not too with if else
+    {
+        String phrase = "\"" + name + "\" by " + artist + " (" + duration + ")"; // using the backslash to exit the thing to have quotations in it
+        if (liked == true) // adding liked only if liked
+        {
+            phrase += " -- liked"; 
+        }
+        return phrase;
+    }
 }
