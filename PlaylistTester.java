@@ -11,17 +11,17 @@ public class PlaylistTester {
         myPlaylist.addSong("Telephone", "Lady Gaga", "2:58", false);
         myPlaylist.addSong("traitor", "Olivia Rodrigo", "3:49", false);
         myPlaylist.addSong("happier than ever", "Billie Eilish", "5:15", false);
-        myPlaylist.addSong("no tears left to cry", "Ariana Grande", "3:25", false);
+        myPlaylist.addSong("Purple Hat", "Sofi Tukker", "3:25", false);
         System.out.println();
 
         // printing all the songs
         System.out.println(myPlaylist.printAllSongs());
 
         // liking songs
-        System.out.println("Liking the songs: 'Cruel Summer', 'happier than ever', and 'no tears left to cry'...");
-        myPlaylist.likeSong("Cruel Summer");
+        System.out.println("Liking the songs: 'Telephone', 'happier than ever', and 'Purple Hat'...");
+        myPlaylist.likeSong("Telephone");
         myPlaylist.likeSong("happier than ever");
-        myPlaylist.likeSong("no tears left to cry");
+        myPlaylist.likeSong("Purple Hat");
         System.out.println();
 
         // printing new list of liked songs
