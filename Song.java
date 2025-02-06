@@ -9,6 +9,9 @@ public class Song {
     private boolean liked;
     private String artist;
 
+    /**
+     * Constructor
+     */
     public Song(String name, String artist, String duration, boolean liked)
     {
         this.name = name;
@@ -17,26 +20,34 @@ public class Song {
         this.liked = liked;
     }
 
+    /**
+     * the method getName() returns the name of the song
+     */    
     public String getName()
     {
         return name;  
     }
-
+    /**
+     * the method getArtist() returns the artist name of the song
+     */
     public String getArtist()
     {
         return artist;
     }
-
+    /**
+     * the method getDuration() returns the duration of the song
+     */
     public String getDuration()
     {
         return duration;
     }
-
+    /**
+     * the method getLiked determines if a song is liked or not
+     */
     public boolean isLiked()
     {
         return liked;
     }
-
     public void like()
     {
         liked = true;
@@ -46,6 +57,9 @@ public class Song {
     {
         liked = false;
     }
+    /**
+     * the method calcDuration() determines the duration of the song
+     */
     public int calcDuration() //minutes and seconds as substrings
     {
         int colonPosition = 0;

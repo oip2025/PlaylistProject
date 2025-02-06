@@ -22,14 +22,11 @@ public class Playlist
         vibes = new ArrayList<>();
     }
       /**
-       * Methods-- Remember that you need to be able to complete all of the following:
-       * Adding a song
-       * 'liking' a song
-       * Removing a specific song
-       * Examining all Songs (a String return or void print makes sense here)
-       * Examining a sublist of all liked songs
-       * Determining the total duration of all songs
-       * Removing all unliked songs from the playlist (careful with this one!)
+       * method addSong() adds song to playlist
+       * @param name name of song
+       * @param artist name of artist
+       * @param duration song length
+       * @param liked liked status
        */
     public void addSong(String name, String artist, String duration, boolean liked)
     {
@@ -37,6 +34,10 @@ public class Playlist
         vibes.add(newSong);
         System.out.println("Added " + newSong);
     }
+    /**
+     * likeSong() likes a song
+     * @param name song name
+    */
     public void likeSong(String name)
     {
         for(Song song : vibes)
@@ -47,6 +48,10 @@ public class Playlist
             }
         }
     }
+    /**
+     * removeSong() removes song from playlist
+     * @param name name of song
+     */
     public void removeSong(String name) //saying which song want to remove
     {
         for (int i = vibes.size() - 1; i >= 0; i--)
@@ -59,6 +64,9 @@ public class Playlist
             }
         }
     }
+    /**
+     * prints songs
+     */
     public String printAllSongs()
     {
         String allSongs = "Printing the songs...\n"; // n thing to like get out of it
@@ -68,6 +76,9 @@ public class Playlist
         }
         return allSongs;
     }
+    /**
+     * prints liked songs
+     */
     public String printLikedSongs() // making new list of new songs
     {
         System.out.println("Printing only the liked songs...");
@@ -86,6 +97,9 @@ public class Playlist
         }
         return output;
     }
+    /**
+     * total song duration
+     */
     public String totalDuration()
     {
         int totalSeconds = 0;
@@ -107,6 +121,9 @@ public class Playlist
         }
         return result; // encountered the printing mistake thing AGAIN
     }
+    /**
+     * removes unliked songs
+     */
     public void removeUnlikedSongs() // using ArrayList function method remove()
     {
         System.out.println("Removing all unliked songs...");
