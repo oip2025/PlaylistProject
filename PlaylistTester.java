@@ -7,7 +7,7 @@ public class PlaylistTester {
 
         // adding songs
         System.out.println("Adding songs to the Playlist...");
-        myPlaylist.addSong("vampire", "Olivia Rodrigo", "3:39", false);
+        myPlaylist.addSong("Astronomy", "Conan Gray", "3:39", false);
         myPlaylist.addSong("Cruel Summer", "Taylor Swift", "2:58", false);
         myPlaylist.addSong("traitor", "Olivia Rodrigo", "3:49", false);
         myPlaylist.addSong("happier than ever", "Billie Eilish", "5:15", false);
